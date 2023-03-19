@@ -30,7 +30,7 @@ export default function Home({ settings }) {
               {settings.title}
             </h1>
             <h2 className="text-step2 tracking-[-0.02em] font-satoshi font-light capitalize">
-              <span className="font-melodrama">Creatives</span> Developer
+              <span className="font-melodrama">Creative</span> Developer
             </h2>
           </div>
           <div className="absolute w-full overflow-hidden -translate-x-1/2 -translate-y-1/2 md:w-3/5 lg:w-[40%] aspect-square top-1/2 left-1/2 blur-xl">

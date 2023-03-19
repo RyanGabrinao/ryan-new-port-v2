@@ -5,7 +5,7 @@ import React from "react";
 
 const ProjectCard = ({ project }) => {
   return (
-    <Link href={`/`}>
+    <Link href={`/works/${project.slug.current}`}>
       <article className="relative w-full overflow-hidden rounded-md shadow-md bg-card text-rg-white">
         <div className="relative w-full h-28">
           <Image

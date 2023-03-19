@@ -21,10 +21,6 @@ const Works = ({ projects }) => {
         Projects
       </h1>
       <section className="flex flex-col gap-6 font-satoshi">
-        {/* <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard /> */}
         {projects.map((project, idx) => (
           <ProjectCard key={idx} project={project} />
         ))}
