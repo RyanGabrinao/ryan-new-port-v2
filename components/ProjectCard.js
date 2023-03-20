@@ -15,8 +15,8 @@ const ProjectCard = ({ project }) => {
             className="object-cover"
           />
         </div>
-        <div className="p-4">
-          <h2 className="font-semibold text-step4">{project.title}</h2>
+        <div className="p-4 py-6">
+          <h2 className="font-semibold text-step4 mb-2">{project.title}</h2>
           <p className="opacity-50 text-step6">{project.excerpt}</p>
         </div>
       </article>

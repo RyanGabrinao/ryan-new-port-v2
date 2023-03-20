@@ -8,7 +8,16 @@ import { client } from "@/utils/client";
 const Works = ({ projects }) => {
   console.log(projects);
   return (
-    <m.main className="relative w-full min-h-screen px-4 pt-12 pb-20">
+    <m.main
+      className="relative w-full min-h-screen px-4 pt-12 pb-20"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.5, delay: 0.5 },
+      }}
+      exit={{ opacity: 0, transition: { duration: 0.5 } }}
+    >
       {/* <div className="w-full h-full">
         <Image
           src={`/../public/images/flare.jpg`}
