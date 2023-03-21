@@ -13,7 +13,7 @@ gsap.registerPlugin(CustomEase);
 const Works = ({ projects }) => {
   return (
     <m.main
-      className="relative top-0 left-0 w-full min-h-screen min-h-[100svh] px-4 pt-10 pb-20 md:pb-0 lg:pb-10 md:pt-16 "
+      className="relative top-0 left-0 w-full min-h-screen px-4 pt-10 pb-20 md:pb-0 lg:pb-10 md:pt-16 "
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{
         opacity: 1,

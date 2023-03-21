@@ -39,7 +39,7 @@ export default function Home({ settings }) {
           transition: { duration: 0.9, ease: customEase2 },
         }}
       >
-        <section className="w-full min-h-screen min-h-[100svh]">
+        <section className="w-full min-h-screen">
           <m.div className="absolute top-14 md:top-[unset] md:bottom-12 md:left-4 md:w-fit text-center md:text-left z-10 leading-[1] text-rg-white uppercase w-full">
             <h1
               className="font-extrabold tracking-tight font-neuehaas text-step_3 md:text-step_1"
@@ -51,14 +51,6 @@ export default function Home({ settings }) {
               <span className="font-melodrama">Creative</span> Developer
             </h2>
           </m.div>
-          {/* <m.div className="absolute w-full overflow-hidden -translate-x-1/2 -translate-y-1/2 md:w-3/5 lg:w-[40%] aspect-square top-1/2 left-1/2 blur-xl">
-            <Image
-              src={"/../public/images/heroGif.gif"}
-              fill
-              alt="photo"
-              draggable={false}
-            />
-          </m.div> */}
           <div className="absolute z-50 -translate-x-1/2 -translate-y-1/2 h-1/5 aspect-square top-1/2 left-1/2 opacity-80 blur-0">
             <Image
               src={urlFor(settings.heroImage).url()}

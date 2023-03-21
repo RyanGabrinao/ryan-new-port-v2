@@ -6,13 +6,16 @@ import { motion as m } from "framer-motion";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import { customEase3 } from "@/utils/eases";
 import Button from "@/components/Button";
+import { client } from "@/utils/client";
+import { siteSettingsQuery } from "@/utils/queries";
+import urlFor from "@/utils/imageBuilder";
 
 gsap.registerPlugin(CustomEase);
 
-const About = () => {
+const About = ({ settings }) => {
   return (
     <m.main
-      className="top-0 left-0 w-full h-full min-h-screen min-h-[100svh] px-5 pb-20 pt-14 md:pt-20 lg:pt-24 lg:pb-20 text-rg-white relative z-10"
+      className="relative top-0 left-0 z-10 w-full h-full min-h-screen px-5 pb-20 pt-14 md:pt-20 lg:pt-24 lg:pb-20 text-rg-white"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{
         opacity: 1,
@@ -33,7 +36,7 @@ const About = () => {
         </h1>
         <div className="relative h-[45vh] md:h-full mb-4 w-full grayscale">
           <Image
-            src={`/../public/images/ryan.jpg`}
+            src={urlFor(settings.aboutImage).url()}
             fill
             alt="photo"
             className="object-cover"
@@ -55,10 +58,10 @@ const About = () => {
               deliver premium results.
             </p>
             <p>
-              Currently I'm working as a freelance Web Developer / Designer &
-              accepting new projects. I'm always available for interesting
-              collaborations and fun side projects. If you would like to work
-              together, feel free to get in touch.
+              Currently I&apos;m working as a freelance Web Developer / Designer
+              & accepting new projects. I&apos;m always available for
+              interesting collaborations and fun side projects. If you would
+              like to work together, feel free to get in touch.
             </p>
           </div>
           <div className="flex flex-col gap-2 mt-8 italic font-neuehaas text-step3 md:text-step5">
@@ -96,5 +99,15 @@ const About = () => {
     </m.main>
   );
 };
+
+export async function getStaticProps() {
+  const settings = await client.fetch(siteSettingsQuery());
+
+  return {
+    props: {
+      settings,
+    },
+  };
+}
 
 export default About;

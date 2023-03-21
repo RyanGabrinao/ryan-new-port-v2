@@ -16,7 +16,7 @@ const Single = ({ project }) => {
   const router = useRouter();
   return (
     <m.main
-      className="top-0 left-0 w-full min-h-screen min-h-[100svh] font-neuehaas text-rg-white relative z-10"
+      className="relative top-0 left-0 z-10 w-full min-h-screen font-neuehaas text-rg-white"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{
         opacity: 1,
