@@ -26,17 +26,15 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(21em, 1fr))",
+      },
       colors: {
         primary: "#0e1216",
         card: "#170F2E",
         "rg-white": "#f1ede9",
         "rg-orange": "#FF884B",
       },
-      // fontFamily: {
-      //   neuehaas: ["Neue Haas Display Pro"],
-      //   gambetta: ["Gambetta"],
-      //   migra: ["Migra"],
-      // },
       backgroundColor: {
         primary: "#0e1216",
         blur: "#030303",
@@ -49,6 +47,9 @@ module.exports = {
       fontSize: {
         heroName: "clamp(3.42rem, calc(1.24rem + 10.90vw), 14.32rem)",
         heroSub: "clamp(1.60rem, calc(0.68rem + 4.60vw), 6.20rem)",
+        step9: "clamp(0.41rem, calc(0.34rem + 0.32vw), 0.73rem)",
+        step8: "clamp(0.49rem, calc(0.40rem + 0.42vw), 0.91rem)",
+        step7: "clamp(0.58rem, calc(0.47rem + 0.55vw), 1.14rem)",
         step6: "clamp(0.70rem, calc(0.56rem + 0.71vw), 1.42rem)",
         step5: "clamp(0.84rem, calc(0.66rem + 0.93vw), 1.77rem)",
         step4: "clamp(1.01rem, calc(0.77rem + 1.20vw), 2.21rem)",

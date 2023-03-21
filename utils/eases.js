@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import CustomEase from "gsap/dist/CustomEase";
+import { CustomEase } from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
@@ -23,17 +23,5 @@ export const customEase4 = CustomEase.create(
   "M0,0 C0.11,0.494 0.06,0.748 0.186,0.874 0.34,1 0.504,1 1,1 "
 );
 
-// CustomEase.create(
-//   "custom",
-//   "M0,0 C0.11,0.494 0.124,0.746 0.25,0.872 0.382,1.004 0.504,1 1,1 "
-// );
-
-// CustomEase.create(
-//   "custom",
-//   "M0,0 C0.802,0 0.348,0.999 0.984,0.999 0.989,0.999 0.994,1 1,1 "
-// );
-
-// CustomEase.create(
-//   "custom",
-//   "M0,0,C0.003,0,0.006,0,0.009,0,0.798,0.007,0.43,1,1,1"
-// );
+export * from "gsap";
+export * from "gsap/dist/CustomEase";

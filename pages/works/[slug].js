@@ -6,28 +6,33 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion as m } from "framer-motion";
 import Button from "@/components/Button";
-import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
+import { customEase3 } from "@/utils/eases";
+import { CustomEase } from "gsap/dist/CustomEase";
+import gsap from "gsap";
+
+gsap.registerPlugin(CustomEase);
 
 const Single = ({ project }) => {
   const router = useRouter();
   return (
     <m.main
-      className="min-h-screen font-neuehaas text-rg-white"
+      className="top-0 left-0 w-full min-h-screen min-h-[100svh] font-neuehaas text-rg-white relative z-10"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.5, delay: 0.5 },
+        transition: { duration: 0.5, delay: 0.4, ease: customEase3 },
+      }}
+      exit={{
+        x: "-100%",
+        position: "absolute",
+        zIndex: 999,
+        height: "100vh",
+        transition: { duration: 0.9, ease: customEase3 },
       }}
     >
       <section id="hero" className="relative">
-        <button
-          className="absolute z-10 top-4 left-1"
-          onClick={() => router.back()}
-        >
-          <ArrowUturnLeftIcon className="w-6 h-6" />
-        </button>
-        <h1 className="font-bold absolute bottom-0 z-10 text-step_2 left-2">
+        <h1 className="absolute bottom-0 z-10 font-bold text-step_2 left-2 md:left-10">
           {project.title}
         </h1>
         <div className="w-full h-[80vh] relative">
@@ -39,56 +44,110 @@ const Single = ({ project }) => {
           />
         </div>
       </section>
-      <section id="overview" className="font-satoshi px-5 my-14">
-        <div className=" flex flex-col gap-4 pb-14">
-          <h2 className="font-bold text-step2 tracking-tighter">Overview</h2>
-          <p className="opacity-70 bg-gray-800 rounded-lg p-4 text-step5 shadow-md shadow-black">
-            {project.excerpt}
+      <section
+        id="overview"
+        className="px-5 md:mx-auto font-satoshi mt-14 md:max-w-2xl lg:max-w-6xl"
+      >
+        <div className="flex flex-col gap-4 pb-14">
+          <h2 className="font-bold tracking-tighter text-step2">Overview</h2>
+          <p className="p-4 bg-gray-800 rounded-lg shadow-md opacity-70 text-step5 md:text-step6 lg:text-step7 shadow-black lg:p-12 lg:py-8">
+            {project.overview}
           </p>
+          <div className="flex justify-between mt-6 text-step5 md:text-step6 lg:text-step7">
+            <Button
+              href={project.repo}
+              text="GitHub Repo"
+              disabled={project.repo ? false : true}
+            />
+            <Button href={project.href} text="Live Site" primary />
+          </div>
         </div>
 
-        <div className="border-t-2 border-rg-white border-opacity-20 flex flex-col gap-8 py-14">
-          <div className="flex justify-between">
-            <h2 className="font-bold text-step4 tracking-tighter">Client</h2>
-            <p className="opacity-70 text-step5">N/A</p>
+        <div className="flex flex-col gap-8 border-y-2 border-rg-white border-opacity-20 py-14 md:flex-row md:justify-between">
+          <div className="flex justify-between md:gap-3 md:flex-col md:justify-start">
+            <h2 className="font-bold tracking-tighter text-step4 md:text-step5">
+              Client
+            </h2>
+            <p className="opacity-70 text-step5 md:text-step6">
+              {project.client}
+            </p>
           </div>
-          <div className="flex justify-between">
-            <h2 className="font-bold text-step4 tracking-tighter">Role</h2>
-            <p className="opacity-70 text-step5">N/A</p>
+          <div className="flex justify-between md:gap-3 md:flex-col md:justify-start">
+            <h2 className="font-bold tracking-tighter text-step4 md:text-step5">
+              Role
+            </h2>
+            {project.roles.map((role, idx) => (
+              <p className="opacity-70 text-step5 md:text-step6" key={idx}>
+                {role}
+              </p>
+            ))}
           </div>
-          <div className="flex justify-between">
-            <h2 className="font-bold text-step4 tracking-tighter">Year</h2>
-            <p className="opacity-70 text-step5">N/A</p>
+          <div className="flex justify-between md:gap-3 md:flex-col md:justify-start">
+            <h2 className="font-bold tracking-tighter text-step4 md:text-step5">
+              Year
+            </h2>
+            <p className="opacity-70 text-step5 md:text-step6">
+              {project.year}
+            </p>
           </div>
-          <div className="flex justify-between">
-            <h2 className="font-bold text-step4 tracking-tighter">Tools</h2>
-            <p className="opacity-70 text-step5">N/A</p>
+          <div className="flex justify-between md:gap-3 md:flex-col md:justify-start">
+            <h2 className="font-bold tracking-tighter text-step4 md:text-step5">
+              Tools
+            </h2>
+            {project.tools.map((tool, idx) => (
+              <p className="opacity-70 text-step5 md:text-step6" key={idx}>
+                {tool}
+              </p>
+            ))}
           </div>
-        </div>
-        <div className="flex justify-between">
-          <Button href={`/`} text="GitHub Repo" />
-          <Button href={`/`} text="Live Site" primary />
         </div>
       </section>
-      <section className="font-satoshi px-5 mb-14">
+      <section className="px-5 font-satoshi mb-14 pt-14 md:max-w-2xl md:mx-auto lg:max-w-6xl">
         <div className="flex flex-col gap-4">
-          <h2 className="font-bold text-step2 tracking-tighter">Process</h2>
-          <p className="opacity-70 bg-gray-800 rounded-lg p-4 text-step5 shadow-md shadow-black">
-            {project.excerpt}
+          <h2 className="font-bold tracking-tighter text-step2 md:text-step3">
+            Process
+          </h2>
+          <p className="p-4 bg-gray-800 rounded-lg shadow-md opacity-70 text-step5 md:text-step6 lg:text-step7 shadow-black lg:p-12 lg:py-8">
+            {project.process}
           </p>
         </div>
+        <div className="flex flex-col gap-4 mt-4 md:mt-6 md:gap-6">
+          {project.processImages.length > 0 &&
+            project.processImages.map((image, idx) => (
+              <div className="relative w-full aspect-video" key={idx}>
+                <Image
+                  src={urlFor(image).url()}
+                  fill
+                  className="object-contain"
+                  alt="photo"
+                />
+              </div>
+            ))}
+        </div>
       </section>
-      <section className="font-satoshi px-5 mb-14">
+      <section className="px-5 pb-20 font-satoshi md:max-w-2xl md:mx-auto lg:max-w-6xl">
         <div className="flex flex-col gap-4">
-          <h2 className="font-bold text-step2 tracking-tighter">
+          <h2 className="font-bold tracking-tighter text-step2 md:text-step3">
             Functionality
           </h2>
-          <p className="opacity-70 bg-gray-800 rounded-lg p-4 text-step5 shadow-md shadow-black">
-            {project.excerpt}
+          <p className="p-4 bg-gray-800 rounded-lg shadow-md opacity-70 lg:text-step7 text-step5 md:text-step6 shadow-black lg:p-12 lg:py-8">
+            {project.functionality}
           </p>
         </div>
+        <div className="flex flex-col gap-4 mt-4 md:mt-6 md:gap-6">
+          {project.functionalityImages.length > 0 &&
+            project.functionalityImages.map((image, idx) => (
+              <div className="relative w-full aspect-video" key={idx}>
+                <Image
+                  src={urlFor(image).url()}
+                  fill
+                  className="object-contain"
+                  alt="photo"
+                />
+              </div>
+            ))}
+        </div>
       </section>
-      <section>Heloo</section>
     </m.main>
   );
 };

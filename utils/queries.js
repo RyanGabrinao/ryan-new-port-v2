@@ -1,5 +1,5 @@
 export const allProjectsQuery = () => {
-  const query = `*[_type == "projects"] | order(_createdAt desc)`;
+  const query = `*[_type == "projects"] | order(_createdAt asc)`;
 
   return query;
 };

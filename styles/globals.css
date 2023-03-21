@@ -8,11 +8,28 @@
   }
 }
 
-html,
-body {
-  height: -webkit-fill-available;
+body::before {
+  content: "";
+  background-image: url("/fuzzy-fuzz.gif");
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 999999;
+  background-repeat: repeat;
+  pointer-events: none;
 }
 
-#title {
-  font-stretch: expanded;
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
