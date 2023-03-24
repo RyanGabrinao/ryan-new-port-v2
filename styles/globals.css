@@ -8,6 +8,10 @@
   }
 }
 
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
 body::before {
   content: "";
   background-image: url("/fuzzy-fuzz.gif");
