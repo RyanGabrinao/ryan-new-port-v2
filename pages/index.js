@@ -24,20 +24,20 @@ export default function Home({ settings }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <m.main
-        className="top-0 left-0 w-full h-full overflow-hidden select-none "
-        initial={{ opacity: 0, scale: 0.95 }}
+        key="home-page"
+        className="top-0 left-0 w-full overflow-hidden select-none"
+        initial={{ opacity: 0, scale: 0.95, position: "absolute" }}
         animate={{
           opacity: 1,
           scale: 1,
-          transition: { duration: 0.5, delay: 0.4, ease: customEase3 },
+          position: "relative",
         }}
         exit={{
-          x: "-100%",
-          position: "fixed",
-          height: "100vh",
+          opacity: 0,
+          position: "absolute",
           zIndex: 999,
-          transition: { duration: 0.9, ease: customEase2 },
         }}
+        transition={{ duration: 0.5, ease: customEase3 }}
       >
         <section className="w-full min-h-screen">
           <m.div className="absolute top-14 md:top-[unset] md:bottom-12 md:left-4 md:w-fit text-center md:text-left z-10 leading-[1] text-rg-white uppercase w-full">
