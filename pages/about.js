@@ -15,20 +15,20 @@ gsap.registerPlugin(CustomEase);
 const About = ({ settings }) => {
   return (
     <m.main
-      className="relative top-0 left-0 z-10 w-full h-full min-h-screen px-5 pb-20 pt-14 md:pt-20 lg:pt-24 lg:pb-20 text-rg-white"
-      initial={{ opacity: 0, scale: 0.95 }}
+      key="about-page"
+      className="relative top-0 left-0 z-10 w-full max-h-full px-5 pb-20 pt-14 md:pt-20 lg:pt-24 lg:pb-20 text-rg-white"
+      initial={{ opacity: 0, scale: 0.95, position: "absolute" }}
       animate={{
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.5, delay: 0.4, ease: customEase3 },
+        position: "relative",
       }}
       exit={{
-        x: "-100%",
-        position: "fixed",
+        opacity: 0,
+        position: "absolute",
         zIndex: 999,
-        height: "100vh",
-        transition: { duration: 0.9, ease: customEase3 },
       }}
+      transition={{ duration: 0.5, ease: customEase3 }}
     >
       <section className="max-w-6xl gap-4 mx-auto md:gap-6 lg:gap-8 font-satoshi md:grid md:grid-cols-2">
         <h1 className="col-span-2 font-bold tracking-tighter font-neuehaas text-step_2 md:text-step_3">

@@ -13,20 +13,20 @@ gsap.registerPlugin(CustomEase);
 const Works = ({ projects }) => {
   return (
     <m.main
-      className="relative top-0 left-0 w-full min-h-screen px-4 pt-10 pb-20 md:pb-0 lg:pb-10 md:pt-16 "
-      initial={{ opacity: 0, scale: 0.95 }}
+      key="projects-page"
+      className="relative top-0 left-0 w-full max-h-full px-4 pt-10 pb-20 md:pb-0 lg:pb-10 md:pt-16 "
+      initial={{ opacity: 0, scale: 0.95, position: "absolute" }}
       animate={{
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.5, delay: 0.4, ease: customEase3 },
+        position: "relative",
       }}
       exit={{
-        x: "-100%",
+        opacity: 0,
         position: "absolute",
         zIndex: 999,
-        height: "100vh",
-        transition: { duration: 0.9, ease: customEase3 },
       }}
+      transition={{ duration: 0.5, ease: customEase3 }}
       // exit={{ opacity: 0, transition: { duration: 0.5, ease: customEase3 } }}
     >
       <section className="max-w-md mx-auto font-satoshi md:max-w-7xl">

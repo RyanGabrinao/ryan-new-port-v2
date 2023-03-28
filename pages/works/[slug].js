@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import urlFor from "@/utils/imageBuilder";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { motion as m } from "framer-motion";
 import Button from "@/components/Button";
 import { customEase3 } from "@/utils/eases";
@@ -12,25 +11,25 @@ import gsap from "gsap";
 
 gsap.registerPlugin(CustomEase);
 
-const Single = ({ project }) => {
-  const router = useRouter();
+const Single = ({ project, routePageOffset, exitStart }) => {
   return (
     <m.main
-      className="relative top-0 left-0 z-10 w-full min-h-screen font-neuehaas text-rg-white"
-      initial={{ opacity: 0, scale: 0.95 }}
+      key="single-page"
+      className={`relative top-0 left-0 z-10 w-full max-h-full font-neuehaas text-rg-white`}
+      initial={{ opacity: 0, scale: 0.95, position: "absolute" }}
       animate={{
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.5, delay: 0.4, ease: customEase3 },
+        position: "relative",
       }}
       exit={{
-        x: "-100%",
+        opacity: 0,
         position: "absolute",
         zIndex: 999,
-        height: "100vh",
-        transition: { duration: 0.9, ease: customEase3 },
       }}
+      transition={{ duration: 0.5, ease: customEase3 }}
     >
+      {/* <div className="relative z-30 max-h-full overflow-y-auto"> */}
       <section id="hero" className="relative">
         <h1 className="absolute bottom-0 z-10 font-bold text-step_2 left-2 md:left-10">
           {project.title}
@@ -148,6 +147,7 @@ const Single = ({ project }) => {
             ))}
         </div>
       </section>
+      {/* </div> */}
     </m.main>
   );
 };

@@ -42,7 +42,7 @@ const neueHaas = localFont({
 const FontProvider = ({ children }) => {
   return (
     <div
-      className={`bg-primary ${melodrama.variable} ${satoshi.variable} ${neueHaas.variable}`}
+      className={`bg-primary ${melodrama.variable} ${satoshi.variable} ${neueHaas.variable} top-0 w-full left-0 min-h-full`}
     >
       <div className="fixed w-full overflow-hidden -translate-x-1/2 -translate-y-1/2 md:w-3/5 lg:w-[40%] aspect-square top-1/2 left-1/2 blur-xl">
         <Image src={"/images/heroGif.gif"} fill alt="photo" draggable={false} />
