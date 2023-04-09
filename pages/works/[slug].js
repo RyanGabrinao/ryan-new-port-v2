@@ -34,7 +34,7 @@ const Single = ({ project, routePageOffset, exitStart }) => {
         <h1 className="absolute bottom-0 z-10 font-bold text-step_2 left-2 md:left-10">
           {project.title}
         </h1>
-        <div className="w-full h-[80vh] relative">
+        <div className="w-full h-[80vh] relative brightness-[0.5]">
           <Image
             src={urlFor(project.mainImage).url()}
             fill
