@@ -102,14 +102,16 @@ const Single = ({ project, routePageOffset, exitStart }) => {
         </div>
       </section>
       <section className="px-5 font-satoshi mb-14 pt-14 md:max-w-2xl md:mx-auto lg:max-w-6xl">
-        <div className="flex flex-col gap-4">
-          <h2 className="font-bold tracking-tighter text-step2 md:text-step3">
-            Process
-          </h2>
-          <p className="p-4 bg-gray-800 rounded-lg shadow-md opacity-70 text-step5 md:text-step6 lg:text-step7 shadow-black lg:p-12 lg:py-8">
-            {project.process}
-          </p>
-        </div>
+        {project.process && (
+          <div className="flex flex-col gap-4">
+            <h2 className="font-bold tracking-tighter text-step2 md:text-step3">
+              Process
+            </h2>
+            <p className="p-4 bg-gray-800 rounded-lg shadow-md opacity-70 text-step5 md:text-step6 lg:text-step7 shadow-black lg:p-12 lg:py-8">
+              {project.process}
+            </p>
+          </div>
+        )}
         <div className="flex flex-col gap-4 mt-4 md:mt-6 md:gap-6">
           {project.processImages.length > 0 &&
             project.processImages.map((image, idx) => (
@@ -125,14 +127,17 @@ const Single = ({ project, routePageOffset, exitStart }) => {
         </div>
       </section>
       <section className="px-5 pb-20 font-satoshi md:max-w-2xl md:mx-auto lg:max-w-6xl">
-        <div className="flex flex-col gap-4">
-          <h2 className="font-bold tracking-tighter text-step2 md:text-step3">
-            Functionality
-          </h2>
-          <p className="p-4 bg-gray-800 rounded-lg shadow-md opacity-70 lg:text-step7 text-step5 md:text-step6 shadow-black lg:p-12 lg:py-8">
-            {project.functionality}
-          </p>
-        </div>
+        {project.functionality && (
+          <div className="flex flex-col gap-4">
+            <h2 className="font-bold tracking-tighter text-step2 md:text-step3">
+              Functionality
+            </h2>
+            <p className="p-4 bg-gray-800 rounded-lg shadow-md opacity-70 lg:text-step7 text-step5 md:text-step6 shadow-black lg:p-12 lg:py-8">
+              {project.functionality}
+            </p>
+          </div>
+        )}
+
         <div className="flex flex-col gap-4 mt-4 md:mt-6 md:gap-6">
           {project.functionalityImages.length > 0 &&
             project.functionalityImages.map((image, idx) => (
